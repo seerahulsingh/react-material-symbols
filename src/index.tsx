@@ -6,6 +6,7 @@ import { combineClasses } from './utils';
 
 export type MaterialSymbolProps = {
 	/** Required. The name of the icon to render. */
+	name?: SymbolCodepoints;
 	icon: SymbolCodepoints;
 	/** Default `false`.
 	 *
@@ -36,6 +37,7 @@ export const MaterialSymbol = forwardRef(
 	<C extends ElementType>(
 		{
 			icon,
+			name,
 			onClick,
 			as,
 			weight,
@@ -79,7 +81,7 @@ export const MaterialSymbol = forwardRef(
 				onClick={onClick}
 				className={combineClasses('material-symbols', className)}
 			>
-				{icon}
+				{name || icon}
 			</Component>
 		);
 	}
